@@ -1,8 +1,8 @@
 ---
-title       : Tulpdiagamm
-description : Tulpdiagrammid  ggplot2  paketiga
-
+title: Tulpdiagamm
+description: 'Tulpdiagrammid  ggplot2  paketiga'
 ---
+
 ## Tulpdiagamm esinemissagedustega
 
 ```yaml
@@ -12,6 +12,7 @@ lang: r
 xp: 100
 skills: 1
 ```
+
 Töölaual on andmestik `jootraha`. Tegu on ühe kelneri kogutud andmetega paari kuu
 pikkusest tööperioodist. Registreeritud on kõik laudkonnad, kes selle perioodi jooksul 
 andsid jootraha. Kirja sai laudkonna arve suurus  dollarites (*total_bill*), saadud jootraha dollarites(*tip*),
@@ -20,20 +21,14 @@ või õhtuga(*time*) ja laudkonnas suurus (*size*).
 
 Ülesandeks on nende andmete iseloomustamine graafikute abil, kasutades paketi **ggplot2** vahendeid.
 
-
 `@instructions`
-
 - **Ülesanne 1** Aktiveeri pakett **ggplot2**.
 - **Ülesanne 2** Täienda joonise koodi<br>
     - sobiva `geom_<...>` funktsiooniga nii, et tulemuseks oleks siniste(`"royalblue"`) tulpadega tulpdiagramm, 
 mis näitaks jootraha andnud laudkondade arvu nädalapäevade kaupa. 
     - Muuda *x*-telge sobiva `scale_x_<...>` funktsiooniga nii, et *x*-teljel oleksid nädalapäevad ajalises 
 järjestuses ja päevade nimed pikalt väljakirjutatuna ("thursday", "friday", "saturday", "sunday", väiksed tähed!). Lisaks pane *x*- teljele nimi *Day of week*. Kirjuta `scale` funktsioonis argumentide, millele väärtused omistad, nimed välja.
-    - Nimeta *y*-telg nimega *Counts* kasutades funktsiooni `ylab()`. 
-
-
-
-
+    - Nimeta *y*-telg nimega *Counts* kasutades funktsiooni `ylab()`.
 
 `@hint`
 - Tulpdiagammi saamiseks on vaja kasutada `geom_bar()` kihti. Selleks, et tulpade värv fikseerida kasuta argumenti `fill`, aga ära seda pane `aes(.)` funktsiooni argumendiks.
@@ -140,27 +135,10 @@ success_msg("Esimene joonis sai valmis, tubli!")
 
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
+
 ## Tulpdiagamm osakaaludega
+
 ```yaml
 type: NormalExercise
 key: d9325fd201
@@ -174,20 +152,15 @@ Töölaual on sama andmestik `jootraha`. Pakett **ggplot2** on juba aktiveeritud
 
 Selles ülesandes punktis kasuta *y* telje sildistamiseks paketi **scales** abi. Kui pakett on aktiveeritud, siis saab `scales_` käskudes kasutada väärtuste sildistamiseks mõningaid eeldefineeritud vorme, näiteks protsendi kuvamiseks `labels = percent`, dollarimärgi lisamiseks summadele `labels = dollar` jne.
 
-
-
-
 `@instructions`
 - **Ülesanne** Täienda antud koodi nii, et tulemuseks oleks tulpdiagramm, mis esitaks iga päeva kohta lõuna (*Lunch*) ja õhtusöökide (*Dinner*) osakaalud. St iga päeva kohta joonisel üks tulp, tulba sees jaotus lõuna ja õhtusöökide vahel antud erineva värviga ja tulba kõrgus summeeruks väärtuseks üks st esitaks tervikut. Muuda vaikimisi skaalasid joonisel järgnevalt:
     - sobiva  `scale_` funktsiooniga tee muudatused nii, et *y*-telje nimi oleks *Percentage* ja telje väärtused oleks sildistatud *%*-märgiga;
     - teise skaalafunktsiooniga `scale_<___>_hue`  muuda värvilegendi pealkiri kujule *Time*;
     - *x*-telje nimi muuda samuti suurtähega algavaks: *Day*, kasuta nime muutmiseks siin `xlab()` funktsiooni.
 
-
 `@hint`
 - Tingliku jaotuse esitamiseks kasuta `geom` kihti kujul: `geom_bar(position = "fill")`.
 - Skaala käsud mida vaja läheb on `scale_y_continuous()` ja `scale_fill_hue()`.
-
 
 `@pre_exercise_code`
 ```{r}
@@ -304,26 +277,3 @@ test_function("xlab",
 
 success_msg("Teine joonis sai valmis, tubli! Järgmises kahes ülesandes on vaadatud kahe arvulise tunnuse seose uurimiseks sobivat graafikutüüpi")
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

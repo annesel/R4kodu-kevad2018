@@ -1,9 +1,8 @@
 ---
-title       : Joondiagramm ja karpdiagramm
-description : ggplot2 joon- ja kapdiagramm
+title: 'Joondiagramm ja karpdiagramm'
+description: 'ggplot2 joon- ja kapdiagramm'
+---
 
-
---- 
 ## Karpdiagrammid
 
 ```yaml
@@ -18,8 +17,6 @@ Töölaual on sama andmestik `jootraha`. Pakett **ggplot2** on juba aktiveeritud
 
 Andmestikus on arvutatud lisatunnus `ratio`, mis näitab jootraha ja arve suuruse suhet.
 
-
-
 `@instructions`
 - **Ülesanne 1** Täienda antud koodi sobivalt,  nii et tulemuseks oleks jootraha ja arve suuruse suhte karpdiagrammid laudkondade suuruse kaupa.
 - **Ülesanne 2** Kohenda saadud joonist, lisades teljenimed `"laudkonna suurus"`, `"jootraha ja arve suhe"` käsuga `labs()`.
@@ -29,8 +26,6 @@ Andmestikus on arvutatud lisatunnus `ratio`, mis näitab jootraha ja arve suurus
 -  Karpdiagammi joonistamiseks kasuta `geom_boxplot()` elementi.
 - Kuna `size` on arvtunnus, mitte grupeeriv/diskreetne tunnus, siis on gruppide määramiseks vaja `aes()` funktsiooni vaja lisada `group = size`.
 
-
-
 `@pre_exercise_code`
 ```{r}
 library(ggplot2)
@@ -39,7 +34,6 @@ library(reshape2)
 jootraha <-tips
 jootraha$ratio <- jootraha$tip/jootraha$total_bill
 ```
-
 
 `@sample_code`
 ```{r}
@@ -152,8 +146,8 @@ success_msg("Karpdiagrammide joonis sai valmis, tubli! Karpdiagramme saab kasuta
 
 ```
 
-
 ---
+
 ## Joondiagramm 1
 
 ```yaml
@@ -165,7 +159,6 @@ skills: 1
 ```
 
 Töölaual on sama andmestik `jootraha`. Pakett **ggplot2** on juba aktiveeritud.
- 
 
 `@instructions`
 - **Ülesanne 1** Lisa andmestikku uus tunnus, mis näitaks kui suur on jootraha suurus ühe inimese kohta laudkonnas, st jaga jootraha suurus laudkonna inimeste arvuga. Uue tunnuse nimeks vali `tip.per.person`
@@ -201,7 +194,6 @@ ggplot(jootraha, aes(x = _______, y = ____________)) +
 
 ```
 
-
 `@solution`
 ```{r}
 # tunnuste nimed andmestikus (total_bill on arve, tip on jootraha dollarites, size laudkonna suurus)
@@ -217,10 +209,6 @@ ggplot(jootraha, aes(x = size, y = tip.per.person)) +
                     scale_x_continuous(breaks = 1:6)
 
 ```
-
-
-
-
 
 `@sct`
 ```{r}
@@ -266,14 +254,8 @@ success_msg("Ühe grupi joondiagramm sai valmis, väga tubli! Järgmistes ülesa
 
 ```
 
-
-
-
-
-
-
-
 ---
+
 ## Joondiagramm 2
 
 ```yaml
@@ -321,7 +303,6 @@ ggplot(jootraha, aes(x = _______, y = ____________, ________________)) +
 
 ```
 
-
 `@solution`
 ```{r}
 # tunnuste nimed andmestikus (total_bill on arve, tip on jootraha dollarites)
@@ -333,11 +314,6 @@ ggplot(jootraha, aes(x = size, y = tip.per.person, color = sex)) +
                     scale_x_continuous(breaks = 1:6)
 
 ```
-
-
-
-
-
 
 `@sct`
 ```{r}
@@ -372,15 +348,8 @@ success_msg("Super! Järgmine ülesanne on viimane!")
 
 ```
 
-
-
-
-
-
-
-
-
 ---
+
 ## Joondiagramm 3
 
 ```yaml
@@ -398,15 +367,12 @@ Andmestikus on olemas tunnus, mis näitab jootraha suurust ühe inimese kohta la
  
 Tee eelmise ülesandega sarnane joonis, kuid nüüd lisa soo tunnus nii, et graafikule tekiks kaks sama värvi, kuid erinevat tüüpi joont. Joone tüübi määramiseks kasuta `linetype` argumenti.
 
-
-
 `@instructions`
 - **Ülesanne** Täienda antud joonise koodi nii, et tulemuseks oleks joondiagramm, mille abil 
 saaks näha kuidas muutub keskmine inimese kohta makstud jootraha vastavalt laudkonna suurusele grupeerituna soo järgi, soo grupid olgu tähistatud erineva joonetüübiga (aga sama värvi joon).
 
 `@hint`
 -  Joone tüübi määramiseks tunnuse järgi, lisa `aes()` käsku  argumendi `linetype` väärtuseks vastav tunnus.
-
 
 `@pre_exercise_code`
 ```{r}
@@ -431,7 +397,6 @@ ggplot(jootraha, aes(x = _______, y = ____________, ________________)) +
 
 ```
 
-
 `@solution`
 ```{r}
 # tunnuste nimed andmestikus (total_bill on arve, tip on jootraha dollarites)
@@ -443,9 +408,6 @@ ggplot(jootraha, aes(x = size, y = tip.per.person, linetype = sex)) +
                     scale_x_continuous(breaks = 1:6)
 
 ```
-
-
-
 
 `@sct`
 ```{r}
@@ -479,4 +441,3 @@ success_msg("Väga tubli, viimane ülesanne sai tehtud! Võta kommi!")
 
 
 ```
-

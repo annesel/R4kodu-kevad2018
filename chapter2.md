@@ -1,7 +1,8 @@
 ---
-title       : Hajuvusdiagamm
-description : Hajuvusdiagrammid ggplot2 paketiga
+title: Hajuvusdiagamm
+description: 'Hajuvusdiagrammid ggplot2 paketiga'
 ---
+
 ## Hajuvusdiagramm 1
 
 ```yaml
@@ -13,7 +14,6 @@ skills: 1
 ```
 
 Töölaual on sama andmestik `jootraha`. Pakett **ggplot2** on juba aktiveeritud.
-
 
 `@instructions`
 - **Ülesanne 1** Täienda antud koodi nii, et tulemuseks oleks hajuvusdiagramm restoraniarve suuruse ja jootraha suuruse vahel. Siin vali *x*-teljele arve suuruse tunnus.
@@ -66,10 +66,6 @@ j1
 suurim  <- "Sat"
 
 ```
-
-
-
-
 
 `@sct`
 ```{r}
@@ -144,16 +140,8 @@ success_msg("Esimene hajuvusdiagramm on valmis!")
 
 ```
 
-
-
-
-
-
-
-
-
-
 ---
+
 ## Hajuvusdiagramm 2
 
 ```yaml
@@ -164,11 +152,7 @@ xp: 100
 skills: 1
 ```
 
-
 Töölaual on sama andmestik `jootraha`. Pakett **ggplot2** on juba aktiveeritud.
-
-
-
 
 `@instructions`
 - **Ülesanne 1** Täienda antud koodi nii, et tulemuseks oleks hajuvusdiagramm restoraniarve suuruse ja jootraha suuruse vahel. Siin vali *x*-teljele arve suuruse tunnus.
@@ -219,10 +203,6 @@ j1 + geom_smooth(method = lm)
 
 ```
 
-
-
-
-
 `@sct`
 ```{r}
 
@@ -267,4 +247,3 @@ test_function("geom_smooth",
 success_msg("Väga tubli!")
 
 ```
-

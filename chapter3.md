@@ -1,11 +1,8 @@
 ---
-title       : Histogramm
-description : ggplot2 histogramm
-
-
-
-
+title: Histogramm
+description: 'ggplot2 histogramm'
 ---
+
 ## Histogramm jaotuse iseloomustamiseks
 
 ```yaml
@@ -17,7 +14,6 @@ skills: 1
 ```
 
 Töölaual on sama andmestik `jootraha`. Pakett **ggplot2** on juba aktiveeritud.
-
 
 `@instructions`
 - **Ülesanne 1** Lisa andmestikku uus tunnus nimega `ratio`, mille väärtuseks oleks kelneri saadud jootraha ja makstud arve jagatis.
@@ -130,10 +126,8 @@ success_msg("Tubli! Üks ülesanne on veel histogrammi kohta.")
 
 ```
 
-
-
-
 ---
+
 ## Histogrammi värvi muutmine
 
 ```yaml
@@ -143,6 +137,7 @@ lang: r
 xp: 50
 skills: 1
 ```
+
 Lisame histogrammi joonistamise käsku värvi järgmisel moel:
 ```{r}
 ggplot(jootraha, aes(x = ratio, y = ..density..)) + 
@@ -153,16 +148,13 @@ ggplot(jootraha, aes(x = ratio, y = ..density..)) +
 
 Vali õige vastusevariant, kuidas muutub histogrammi värv?
 
-
-`@instructions`
+`@possible_answers`
 - Tulemuseks oleval joonisel on histogrammi tulbad rohelist tooni.
 - Tulemuseks oleval joonisel on histogrammi tulbad ikka hallid, kuid tulbad on raamistatud rohelisega.
 - Tulemuseks oleval joonisel on histogrammi tulbad punast tooni.
 - Tulemuseks oleval joonisel on histogrammi tulbad halli tooni, kuid tulbad on raamistatud punasega.
 - Tulemuseks oleval joonisel on histogrammi tulbad rohelist tooni ja tulbad on raamistatud punasega.
 - Tulpade täitevärvi määramiseks tuleks `fill` asemel kasutada argumenti `color`.
-
-
 
 `@hint`
 - Mõtle kas andmestikus on tunnus, mille nimi on *chartreuse*?
@@ -187,7 +179,3 @@ msg6 = "Vale vastus! `color` määrab raami värvi, mitte täite."
 
 test_mc(correct = 3, feedback_msgs = c(msg1, msg2, msg3, msg4, msg5, msg6))
 ```
-
-
-
-
