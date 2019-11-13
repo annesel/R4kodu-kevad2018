@@ -18,13 +18,13 @@ Töölaual on sama andmestik `jootraha`. Pakett **ggplot2** on juba aktiveeritud
 Andmestikus on arvutatud lisatunnus `ratio`, mis näitab jootraha ja arve suuruse suhet.
 
 `@instructions`
-- **Ülesanne 1** Täienda antud koodi sobivalt,  nii et tulemuseks oleks jootraha ja arve suuruse suhte karpdiagrammid laudkondade suuruse kaupa.
-- **Ülesanne 2** Kohenda saadud joonist, lisades teljenimed `"laudkonna suurus"`, `"jootraha ja arve suhe"` käsuga `labs()`.
-- **Ülesanne 3** Leia sagedustabel laudkonna suuruse tunnusele, omista see muutujale `tabel` ja prindi ekraanile.
+- **Ülesanne 1:** Täienda antud koodi sobivalt,  nii et tulemuseks oleks jootraha ja arve suuruse suhte (`ratio`) karpdiagrammid laudkondade suuruse kaupa.
+- **Ülesanne 2:** Kohenda saadud joonist, lisades teljenimed `"laudkonna suurus"`, `"jootraha ja arve suhe"` käsuga `labs()`.
+- **Ülesanne 3:** Leia sagedustabel laudkonna suuruse tunnusele, omista see muutujale `tabel` ja prindi ekraanile.
 
 `@hint`
+-  Kuna `size` on arvtunnus, mitte grupeeriv/diskreetne tunnus, siis on *x*-teljel gruppide määramiseks vaja `aes()` funktsiooni lisada `group = size`.
 -  Karpdiagammi joonistamiseks kasuta `geom_boxplot()` elementi.
-- Kuna `size` on arvtunnus, mitte grupeeriv/diskreetne tunnus, siis on gruppide määramiseks vaja `aes()` funktsiooni vaja lisada `group = size`.
 
 `@pre_exercise_code`
 ```{r}
@@ -74,7 +74,7 @@ tabel
 `@sct`
 ```{r}
 
-test_student_typed("group = size", not_typed_msg = "Kas määrasid `ggplot()` käsus `aes()` argumendi `group` väärtuseks `size`?" ) 
+test_student_typed("group = size", not_typed_msg = "Kas määrasid `ggplot()` käsus `aes()` argumendi `group = size`?" ) 
  
 
 test_ggplot(index = 1, 
@@ -82,10 +82,10 @@ test_ggplot(index = 1,
     check_data = TRUE, 
     data_fail_msg = "Kontrolli `ggplot` käsu argumendiks antud andmestikku.", 
     check_aes = TRUE, 
-    aes_fail_msg = "Kontrolli  ülesandes `aes(.)`  funktsiooni argumente.", 
+    aes_fail_msg = "Kontrolli  `ggplot` käsus `aes(.)`  funktsiooni argumente.", 
     exact_aes = FALSE, 
     check_geom = TRUE, 
-    geom_fail_msg = "Viga on `geom` elemendi lisamise käsus. Kontrolli, kas lisad sobiva elemendi. Vaata üle ka argumentide kirjapanek.",
+    geom_fail_msg = "Viga on `geom` elemendi lisamise käsus. Kontrolli, kas lisad sobiva elemendi (`geom_boxplot()`).",
     exact_geom = FALSE, 
     check_geom_params = TRUE, 
     check_facet = TRUE, 
@@ -102,7 +102,7 @@ test_ggplot(index = 1,
     check_extra = NULL, extra_fail_msg = NULL, exact_extra = NULL, check = NULL)
 
  
-test_student_typed("group = size", not_typed_msg = "Kas määrasid argumendi `group` väärtuseks `size`?" ) 
+#test_student_typed("group = size", not_typed_msg = "Kas määrasid argumendi `group` väärtuseks `size`?" ) 
  
  
 test_function("labs",
@@ -115,9 +115,6 @@ test_function("labs",
               incorrect_msg = NULL)     
 
 test_student_typed("laudkonna suurus", not_typed_msg = "Pane *x*-teljele nimi `laudkonna suurus`.")
-
-
-
 test_student_typed("jootraha ja arve suhe", not_typed_msg = "Pane *y*-teljele nimi `jootraha ja arve suhe`.")
  
  

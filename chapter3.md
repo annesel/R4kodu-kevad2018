@@ -16,9 +16,9 @@ skills: 1
 Töölaual on sama andmestik `jootraha`. Pakett **ggplot2** on juba aktiveeritud.
 
 `@instructions`
-- **Ülesanne 1** Lisa andmestikku uus tunnus nimega `ratio`, mille väärtuseks oleks kelneri saadud jootraha ja makstud arve jagatis.
-- **Ülesanne 2** Täienda antud koodi nii, et tulemuseks oleks jootraha ja makstud arve suhte histogramm. Histogrammil vali intervallide arvuks 15.
-- **Ülesanne 3** Kui joonis valmis, siis uuri veidi andmestikku: kas laudkond, kelle jootraha moodustas arvest rohkem kui poole käis lõunasöögil (*Lunch*) või õhtusöögil(*Dinner*)? Omista õige vastus  stringina (`"Lunch"` või `"Dinner"`) muutujale `erind`.
+- **Ülesanne 1:** Lisa andmestikku uus tunnus nimega `ratio`, mille väärtuseks oleks kelneri saadud jootraha ja makstud arve jagatis.
+- **Ülesanne 2:** Täienda antud koodi nii, et tulemuseks oleks jootraha ja makstud arve suhte histogramm. Histogrammil vali intervallide arvuks 15 (`bins`).
+- **Ülesanne 3:** Kui joonis valmis, siis uuri veidi andmestikku: kas laudkond, kelle jootraha moodustas arvest rohkem kui poole käis lõunasöögil (*Lunch*) või õhtusöögil(*Dinner*)? Omista õige vastus  stringina (`"Lunch"` või `"Dinner"`) muutujale `erind`.
 
 `@hint`
 - Uue tunnuse leidmiseks peab leidma jagatise `jootraha$tip/jootraha$total_bill`.
@@ -88,16 +88,16 @@ test_ggplot(index = 1,
     check_data = TRUE, 
     data_fail_msg = "Kontrolli `ggplot` käsu argumendiks antud andmestikku.", 
     check_aes = TRUE, 
-    aes_fail_msg = "Kontrolli  ülesandes `aes(.)`  funktsiooni argumente.", 
+    aes_fail_msg = "Kontrolli  joonise tgemise koodis `aes(.)`  funktsiooni argumente.", 
     exact_aes = FALSE, 
     check_geom = TRUE, 
-    geom_fail_msg = "Viga on `geom` elemendi lisamise käsus. Kontrolli, kas lisad sobiva elemendi. Vaata üle ka argumentide kirjapanek.",
+    geom_fail_msg = "Viga on `geom` elemendi lisamise käsus. Kontrolli, kas lisad sobiva elemendi (`geom_histogram()`). Vaata üle ka argumendid, pead määrama argumendi `bins` väärtuse vastavalt ülesandele.",
     exact_geom = FALSE, 
     check_geom_params = TRUE, 
     check_facet = TRUE, 
     facet_fail_msg = NULL,
     check_scale = FALSE, 
-    scale_fail_msg = "Probleem on `scale_` käsus.",
+    scale_fail_msg = NULL,
     exact_scale = FALSE, 
     check_coord = TRUE, 
     coord_fail_msg = NULL, 
@@ -121,7 +121,7 @@ test_object("erind",
  
 
 
-success_msg("Tubli! Üks ülesanne on veel histogrammi kohta.")
+success_msg("Tubli! Üks histogrammi tuleb veel joonistada.")
 
 
 ```
