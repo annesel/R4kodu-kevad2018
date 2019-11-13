@@ -18,13 +18,13 @@ Töölaual on sama andmestik `jootraha`. Pakett **ggplot2** on juba aktiveeritud
 Andmestikus on arvutatud lisatunnus `ratio`, mis näitab jootraha ja arve suuruse suhet.
 
 `@instructions`
-- **Ülesanne 1:** Täienda antud koodi sobivalt,  nii et tulemuseks oleks jootraha ja arve suuruse suhte (`ratio`) karpdiagrammid laudkondade suuruse kaupa.
+- **Ülesanne 1:** Täienda antud koodi sobivalt, nii et tulemuseks oleks jootraha ja arve suuruse suhte (`ratio`) karpdiagrammid laudkondade suuruse kaupa. Pane tähele, et tunnus `size` on arvtunnus, selleks et saada karpdiagrammid laudkonna suuruste kaupa tuleb see tunnus siduda ka `group` argumendiga.
 - **Ülesanne 2:** Kohenda saadud joonist, lisades teljenimed `"laudkonna suurus"`, `"jootraha ja arve suhe"` käsuga `labs()`.
 - **Ülesanne 3:** Leia sagedustabel laudkonna suuruse tunnusele, omista see muutujale `tabel` ja prindi ekraanile.
 
 `@hint`
--  Kuna `size` on arvtunnus, mitte grupeeriv/diskreetne tunnus, siis on *x*-teljel gruppide määramiseks vaja `aes()` funktsiooni lisada `group = size`.
--  Karpdiagammi joonistamiseks kasuta `geom_boxplot()` elementi.
+-  Kuna `size` on arvtunnus, mitte grupeeriv/diskreetne tunnus, siis on *x*-teljel gruppide määramiseks vaja see tunnus siduda nii argumendiga `x` kui ka `group`: `x = size, group = size`.
+-  Karpdiagammi joonistamiseks kasuta `geom_boxplot()`.
 
 `@pre_exercise_code`
 ```{r}
@@ -37,8 +37,8 @@ jootraha$ratio <- jootraha$tip/jootraha$total_bill
 
 `@sample_code`
 ```{r}
-# tunnuste nimed andmestikus (size - laudkonna suurus)
-names(jootraha)
+# andmestiku ülevaade  (size - seltskonna suurus, ratio - arve/jootraha)
+str(jootraha)
 
 # Ülesanne 1: Karpdiagramm
 j1 <- ggplot(jootraha, aes(x = _______, y = _______, group = _______)) + geom_________
@@ -55,8 +55,8 @@ tabel
 
 `@solution`
 ```{r}
-# tunnuste nimed andmestikus (size - laudkonna suurus)
-names(jootraha)
+# andmestiku ülevaade  (size - seltskonna suurus, ratio - arve/jootraha)
+str(jootraha)
 
 # Ülesanne 1: Karpdiagramm
 j1 <- ggplot(jootraha, aes(x = size, y = ratio, group = size)) + geom_boxplot()
