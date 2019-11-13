@@ -16,9 +16,9 @@ skills: 1
 Töölaual on sama andmestik `jootraha`. Pakett **ggplot2** on juba aktiveeritud.
 
 `@instructions`
-- **Ülesanne 1** Täienda antud koodi nii, et tulemuseks oleks hajuvusdiagramm restoraniarve suuruse ja jootraha suuruse vahel. Siin vali *x*-teljele arve suuruse tunnus.
+- **Ülesanne 1:** Täienda antud koodi nii, et tulemuseks oleks hajuvusdiagramm restoraniarve suuruse ja jootraha suuruse vahel. Siin vali *x*-teljele arve suuruse tunnus.
 Hajuvusdiagrammi punktid värvi vastavalt sellele, mis nädalapäevaga oli tegu, värv lisa `geom_` funktsiooni kaudu. Kasutades sobivat `scale_<_>_hue` funktsiooni määra värvilegendis õige päevade järjekord, päevade nimed jäta lühendatud kujule, ära muuda legendi pealkirja.
-- **Ülesanne 2** Mis päeval on tehtud kõige suurem arve? Omista selle päeva nimi muutujale `suurim`, kasuta päeva kirjapanekul sama lühendit ja kirjapilti kui on andmestikus.
+- **Ülesanne 2:** Mis päeval on tehtud kõige suurem arve? Omista selle päeva nimi muutujale `suurim`, kasuta päeva kirjapanekul sama lühendit ja kirjapilti kui on andmestikus.
 
 `@hint`
 - Hajuvusdiagrammi saamiseks kasuta `geom_point()` käsku.
@@ -80,13 +80,13 @@ test_ggplot(index = 1,
     aes_fail_msg = "Kontrolli  ülesandes `aes(.)`  funktsiooni argumente.", 
     exact_aes = FALSE, 
     check_geom = TRUE, 
-    geom_fail_msg = "Viga on `geom` elemendi lisamise käsus. Kontrolli, kas lisad sobiva elemendi hajuvusdiagrammi tekitamiseks (punktid). Vaata üle ka argumentide kirjapanek `aes()` funktsioonis.",
+    geom_fail_msg = "Viga on `geom` elemendi lisamise käsus. Kontrolli, kas lisad sobiva elemendi hajuvusdiagrammi tekitamiseks (punktid `geom_points()`). Vaata üle ka argumentide kirjapanek `aes()` funktsioonis, pead siin määrama punktide värvi `color` argumendiga.",
     exact_geom = FALSE, 
     check_geom_params = TRUE, 
     check_facet = TRUE, 
     facet_fail_msg = NULL,
     check_scale = TRUE, 
-    scale_fail_msg = "Probleem on `scale_` käsus. Kasuta `scale_color_hue()` funktsiooni",
+    scale_fail_msg = "Probleem on `scale_` käsus. Kasuta `scale_color_hue()` funktsiooni, et määrata nädalapäevade õige järjekord: `c("Thur", "Fri", "Sat", "Sun")`.",
     exact_scale = FALSE, 
     check_coord = TRUE, 
     coord_fail_msg = NULL, 
@@ -104,13 +104,13 @@ test_ggplot(index = 1,
     aes_fail_msg = "Kontrolli  ülesandes `aes(.)`  funktsiooni argumente.", 
     exact_aes = FALSE, 
     check_geom = TRUE, 
-    geom_fail_msg = "Viga on `geom` elemendi lisamise käsus. Kontrolli, kas lisad sobiva elemendi hajuvusdiagrammi tekitamiseks (punktid). Vaata üle ka argumentide kirjapanek `aes()` funktsioonis.",
+    geom_fail_msg = "Viga on `geom` elemendi lisamise käsus. Kontrolli, kas lisad sobiva elemendi hajuvusdiagrammi tekitamiseks (punktid `geom_points()`). Vaata üle ka argumentide kirjapanek `aes()` funktsioonis, pead siin määrama punktide värvi `color` argumendiga.",
     exact_geom = FALSE, 
     check_geom_params = TRUE, 
     check_facet = TRUE, 
     facet_fail_msg = NULL,
     check_scale = FALSE, 
-    scale_fail_msg = " Kontrolli skaala muutmist.",
+    scale_fail_msg = "Kontrolli värviskaala muutmist.  Kasuta `scale_color_hue()` funktsiooni, et määrata nädalapäevade õige järjekord: `c("Thur", "Fri", "Sat", "Sun")`",
     exact_scale = FALSE, 
     check_coord = TRUE, 
     coord_fail_msg = NULL, 
