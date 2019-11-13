@@ -135,6 +135,8 @@ test_object("tabel",
             undefined_msg = "Sagedustabel `tabel` on defineerimata.",
             incorrect_msg = "Sagedustabeli `tabel` sisu on vale.")
  
+test_output_contains("tabel", times = 1, incorrect_msg = "Prindi sagedustabel ka ekraanile!")
+
 
 
 success_msg("Karpdiagrammide joonis sai valmis, tubli! Karpdiagramme saab kasutada arvulisel skaalal muutuva tunnuse uurimiseks teise tunnuse gruppides. Grupitunnus on tüüpiliselt mingi faktortunnus, aga võib olla ka arvuline nagu siin ülesandes.")
@@ -158,13 +160,13 @@ skills: 1
 Töölaual on sama andmestik `jootraha`. Pakett **ggplot2** on juba aktiveeritud.
 
 `@instructions`
-- **Ülesanne 1** Lisa andmestikku uus tunnus, mis näitaks kui suur on jootraha suurus ühe inimese kohta laudkonnas, st jaga jootraha suurus laudkonna inimeste arvuga. Uue tunnuse nimeks vali `tip.per.person`
-- **Ülesanne 2** Täienda antud joonise koodi nii, et tulemuseks oleks joondiagramm, mille abil saaks näha kuidas muutub keskmine inimese kohta makstud jootraha vastavalt laudkonna suurusele.
+- **Ülesanne 1:** Lisa andmestikku uus tunnus, mis näitaks kui suur on jootraha suurus ühe inimese kohta laudkonnas, st jaga jootraha suurus laudkonna inimeste arvuga. Uue tunnuse nimeks vali `tip.per.person`
+- **Ülesanne 2:** Täienda antud joonise koodi nii, et tulemuseks oleks joondiagramm, mille abil saaks näha kuidas muutub keskmine inimese kohta makstud jootraha vastavalt laudkonna suurusele. Esitatav keskmine  inimese kohta makstud jootraha laudkonna suuruse kaupa  tuleb arvutada `stat_summary()` käsus, selleks tuleb määrata sobiv funktsioon argumendi `fun.y` väärtuseks.
 
 `@hint`
--  Joondiagrammi saamiseks peab iga laudkonna suuruse kohta olema leitud keskmine inimesekohta antud jootraha suurus. 
-- Keskmise arvutamise funktsioon (`mean`) tuleb `stat_summary()` käsus anda `fun.y` väärtuseks.
-- Joondiagramm tekib, kui `stat_summary()` käsus argumendi `geom` väärtuseks on `"line"`.
+-  Joondiagrammi saamiseks peab iga laudkonna suuruse kohta olema leitud keskmine inimese kohta antud jootraha suurus. 
+-  Keskmise arvutamise funktsioon (`mean`) tuleb `stat_summary()` käsus anda `fun.y` väärtuseks.
+-  Joondiagramm tekib, kui `stat_summary()` käsus argumendi `geom` väärtuseks on `geom = "line"`.
 
 `@pre_exercise_code`
 ```{r}
@@ -176,7 +178,7 @@ jootraha <-tips
 
 `@sample_code`
 ```{r}
-# tunnuste nimed andmestikus (total_bill on arve, tip on jootraha dollarites, size laudkonna suurus)
+# tunnuste nimed andmestikus 
 names(jootraha)
 
 # Ülesanne 1: Uue tunnuse moodustamine
@@ -193,7 +195,7 @@ ggplot(jootraha, aes(x = _______, y = ____________)) +
 
 `@solution`
 ```{r}
-# tunnuste nimed andmestikus (total_bill on arve, tip on jootraha dollarites, size laudkonna suurus)
+# tunnuste nimed andmestikus
 names(jootraha)
 
 # Ülesanne 1: Uue tunnuse moodustamine
@@ -224,10 +226,10 @@ test_ggplot(index = 1,
     check_data = TRUE, 
     data_fail_msg = "Kontrolli `ggplot` käsu argumendiks antud andmestikku.", 
     check_aes = TRUE, 
-    aes_fail_msg = "Kontrolli  ülesandes `aes(.)`  funktsiooni argumente.", 
+    aes_fail_msg = "Kontrolli  `ggplot` käsus `aes(.)`  funktsiooni argumente.", 
     exact_aes = FALSE, 
     check_geom = TRUE, 
-    geom_fail_msg = "Viga on `geom` argumendis. Vaja on joondiagrammi, seega `geom = line`.",
+    geom_fail_msg = "Viga on  `stat_summary` käsu `geom` argumendis. Vaja on joondiagrammi, seega `geom = 'line'`.",
     exact_geom = FALSE, 
     check_geom_params = TRUE, 
     check_facet = TRUE, 
@@ -271,7 +273,7 @@ Andmestikus on olemas tunnus, mis näitab jootraha suurust ühe inimese kohta la
 Tee eelmise ülesandega sarnane joonis, kuid nüüd lisa soo tunnus nii, et graafikule tekiks kaks joont: üks meeste makstud jootraha kohta ja teine naiste jootraha kohta. Jooned olgu erinevat värvi.
 
 `@instructions`
-- **Ülesanne** Täienda antud joonise koodi nii, et tulemuseks oleks joondiagramm, mille abil saaks näha kuidas muutub keskmine inimese kohta makstud jootraha vastavalt laudkonna suurusele grupeerituna soo järgi. Soo grupid olgu tähistatud erineva värviga.
+- **Ülesanne:** Täienda antud joonise koodi nii, et tulemuseks oleks joondiagramm, mille abil saaks näha kuidas muutub keskmine inimese kohta makstud jootraha vastavalt laudkonna suurusele grupeerituna soo järgi. Soo grupid olgu tähistatud erineva värviga.
 
 `@hint`
 -  Joone värvi määramiseks tunnuse järgi, lisa `aes()` käsku  argumendi `color` väärtuseks vastav tunnus.
@@ -293,7 +295,7 @@ names(jootraha)
  
 
 # Ülesanne : Joondiagramm (soo kaupa)
-ggplot(jootraha, aes(x = _______, y = ____________, ________________)) + 
+ggplot(jootraha, aes(x = _______, y = ____________, __________ = sex)) + 
         stat_summary(geom = "_______",  fun.y = _________)  + 
                     scale_x_continuous(breaks = 1:6)
 
@@ -302,7 +304,7 @@ ggplot(jootraha, aes(x = _______, y = ____________, ________________)) +
 
 `@solution`
 ```{r}
-# tunnuste nimed andmestikus (total_bill on arve, tip on jootraha dollarites)
+# tunnuste nimed andmestikus 
 names(jootraha)
 
 # Ülesanne : Joondiagramm (soo kaupa)
@@ -365,7 +367,7 @@ Andmestikus on olemas tunnus, mis näitab jootraha suurust ühe inimese kohta la
 Tee eelmise ülesandega sarnane joonis, kuid nüüd lisa soo tunnus nii, et graafikule tekiks kaks sama värvi, kuid erinevat tüüpi joont. Joone tüübi määramiseks kasuta `linetype` argumenti.
 
 `@instructions`
-- **Ülesanne** Täienda antud joonise koodi nii, et tulemuseks oleks joondiagramm, mille abil 
+- **Ülesanne:** Täienda antud joonise koodi nii, et tulemuseks oleks joondiagramm, mille abil 
 saaks näha kuidas muutub keskmine inimese kohta makstud jootraha vastavalt laudkonna suurusele grupeerituna soo järgi, soo grupid olgu tähistatud erineva joonetüübiga (aga sama värvi joon).
 
 `@hint`
@@ -388,7 +390,7 @@ names(jootraha)
  
 
 # Ülesanne : Joondiagramm (soo kaupa)
-ggplot(jootraha, aes(x = _______, y = ____________, ________________)) + 
+ggplot(jootraha, aes(x = _______, y = ____________, __________ = sex)) + 
         stat_summary(geom = "_______",  fun.y = _________)  + 
                     scale_x_continuous(breaks = 1:6)
 
@@ -396,7 +398,7 @@ ggplot(jootraha, aes(x = _______, y = ____________, ________________)) +
 
 `@solution`
 ```{r}
-# tunnuste nimed andmestikus (total_bill on arve, tip on jootraha dollarites)
+# tunnuste nimed andmestikus 
 names(jootraha)
 
 # Ülesanne : Joondiagramm (soo kaupa)
